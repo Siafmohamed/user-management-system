@@ -1,0 +1,58 @@
+/**
+ * ============================================================================
+ * USER FORM FEATURE - Styling
+ * ============================================================================
+ *
+ * PURPOSE:
+ *   This stylesheet contains all CSS styles for the user form component.
+ *   It styles form inputs, labels, error messages, and buttons for both
+ *   creating and editing users.
+ *
+ * SECTIONS:
+ *   1. Form Container - Main form wrapper styles
+ *   2. Form Groups - Individual form field containers
+ *   3. Input Styles - Input field, select, textarea styling
+ *   4. Labels - Label text styling
+ *   5. Error Messages - Error display styling
+ *   6. Button Styles - Submit and cancel button styling
+ *   7. Radio & Checkbox - Radio button and checkbox styling
+ *   8. Focus States - Focus and active state styling
+ *   9. Responsive - Mobile and tablet responsive styles
+ *   10. Success/Error Messages - Alert banners
+ *
+ * KEY CLASSES:
+ *   - .form-container: Main form wrapper
+ *   - .form-group: Individual field container
+ *   - .form-control: Input/select/textarea element
+ *   - .form-error: Error message display
+ *   - .form-actions: Button container
+ *   - .alert: Success/error message banner
+ *   - .required: Required field indicator
+ *   - .radio-group: Group of radio buttons
+ *   - .radio-label: Label for radio button
+ *
+ * COLOR SCHEME:
+ *   - Primary: #007bff (submit button)
+ *   - Secondary: #6c757d (cancel button)
+ *   - Danger: #dc3545 (error messages)
+ *   - Success: #28a745 (success messages)
+ *   - Border: #ccc (input borders)
+ *   - Error Border: #dc3545 (invalid inputs)
+ *   - Focus: #80bdff (input focus outline)
+ *
+ * INPUT STATES:
+ *   - Default: Normal input appearance
+ *   - Focus: Border color changes, shadow appears
+ *   - Invalid: Red border and error message
+ *   - Disabled: Greyed out, not interactive
+ *
+ * RESPONSIVE BREAKPOINTS:
+ *   - Mobile (< 768px): Full-width inputs, stacked layout
+ *   - Tablet (768px - 1024px): Adjust padding and spacing
+ *   - Desktop (> 1024px): Two-column layout for fields
+ *
+ * NOTE: Use consistent spacing and align with overall application design.
+ * Ensure form is fully accessible with proper focus management.
+ * ============================================================================
+ */
+

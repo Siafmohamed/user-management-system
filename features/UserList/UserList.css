@@ -1,0 +1,46 @@
+/**
+ * ============================================================================
+ * USER LIST FEATURE - Styling
+ * ============================================================================
+ *
+ * PURPOSE:
+ *   This stylesheet contains all the CSS styles for the user list component.
+ *   It styles the table, rows, buttons, and responsive design for the
+ *   user list feature.
+ *
+ * SECTIONS:
+ *   1. Container & Layout - User list main container styles
+ *   2. Table Styles - Table and cell styling
+ *   3. Row Styles - Individual user row styling
+ *   4. Button Styles - Action button styling
+ *   5. Status Badges - Active/Inactive status styling
+ *   6. Hover & Interactive - Hover effects and interactions
+ *   7. Responsive - Mobile and tablet breakpoints
+ *   8. Empty State - Empty state message styling
+ *
+ * KEY CLASSES:
+ *   - .user-list-container: Main wrapper
+ *   - .user-table: The data table element
+ *   - .user-row: Individual user row
+ *   - .user-actions: Action buttons container
+ *   - .badge-active / .badge-inactive: Status badges
+ *   - .empty-state: Empty state message
+ *
+ * COLOR SCHEME:
+ *   - Primary: #007bff (buttons, links)
+ *   - Danger: #dc3545 (delete actions)
+ *   - Success: #28a745 (active status)
+ *   - Warning: #ffc107 (inactive status)
+ *   - Border: #ddd (table borders)
+ *   - Background: #f8f9fa (hover states)
+ *
+ * RESPONSIVE BREAKPOINTS:
+ *   - Mobile (< 768px): Stack table vertically
+ *   - Tablet (768px - 1024px): Adjust column widths
+ *   - Desktop (> 1024px): Full table layout
+ *
+ * NOTE: Keep styles modular and scoped to avoid conflicts with other features.
+ * ============================================================================
+ */
+
+

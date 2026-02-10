@@ -1,0 +1,70 @@
+/**
+ * ============================================================================
+ * SEARCH BAR FEATURE - Styling
+ * ============================================================================
+ *
+ * PURPOSE:
+ *   This stylesheet contains all CSS styles for the search bar component.
+ *   It styles the search input, buttons, results dropdown, and interactive
+ *   states for the search functionality.
+ *
+ * SECTIONS:
+ *   1. Search Container - Main wrapper styles
+ *   2. Search Wrapper - Input and button layout
+ *   3. Search Input - Search field styling
+ *   4. Buttons - Search and clear button styling
+ *   5. Results Dropdown - Search results container
+ *   6. Result Items - Individual search result styling
+ *   7. Loading State - Loading indicator styling
+ *   8. Focus States - Focus and active states
+ *   9. Responsive - Mobile and tablet styles
+ *   10. Accessibility - Focus rings and visual indicators
+ *
+ * KEY CLASSES:
+ *   - .search-container: Main wrapper
+ *   - .search-wrapper: Input and button flex container
+ *   - .search-input: Search input field
+ *   - .search-btn: Search button
+ *   - .clear-btn: Clear/reset button
+ *   - .search-results: Results dropdown container
+ *   - .search-result-item: Individual result item
+ *   - .search-loading: Loading indicator
+ *   - .search-no-results: No results message
+ *   - .hidden: Hide element
+ *   - .active: Active/highlighted result
+ *
+ * COLOR SCHEME:
+ *   - Background: #fff (input, dropdown)
+ *   - Text: #333 (default text)
+ *   - Border: #ccc (input border)
+ *   - Focus: #007bff (focus border)
+ *   - Hover: #f8f9fa (result hover)
+ *   - Active: #e7f3ff (active result)
+ *   - Button: #007bff (search button)
+ *
+ * INPUT STATES:
+ *   - Default: Normal appearance
+ *   - Focus: Blue border and shadow
+ *   - Typing: Shows clear button
+ *   - Searching: Shows loading indicator
+ *
+ * RESPONSIVE BREAKPOINTS:
+ *   - Mobile (< 768px): Full-width search
+ *   - Tablet (768px - 1024px): Adjusted width
+ *   - Desktop (> 1024px): Fixed width, inline layout
+ *
+ * ANIMATIONS:
+ *   - Fade in/out for results dropdown
+ *   - Loading spinner
+ *   - Highlight animation on result hover
+ *
+ * ACCESSIBILITY:
+ *   - High contrast for visibility
+ *   - Clear focus indicators
+ *   - Keyboard navigation support
+ *
+ * NOTE: Keep search bar styles isolated from other components.
+ * Ensure proper z-index for dropdown overlay.
+ * ============================================================================
+ */
+
