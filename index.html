@@ -1,57 +1,46 @@
-<!--
-  ============================================================================
-  USER MANAGEMENT SYSTEM - Main HTML Entry Point
-  ============================================================================
-
-  PURPOSE:
-    This is the main HTML file that serves as the entry point for the entire
-    user management system application. It provides the basic structure and
-    layout for the web application.
-
-  STRUCTURE:
-    - Meta tags for responsive design and character encoding
-    - Link to external stylesheets (CSS files)
-    - Container divs for different features (users list, form, search, filter)
-    - Script tags loading the JavaScript modules
-
-  KEY ELEMENTS:
-    - #app: Main application container
-    - #user-list: Container for displaying the list of users
-    - #user-form: Container for the add/edit user form
-    - #search-container: Container for the search functionality
-    - #filter-container: Container for filtering options
-
-  DEPENDENCIES:
-    - assets/js/app.js: Main application logic
-    - features/*/: All feature-specific JavaScript files
-
-  NOTE: This file should be kept minimal - most logic should be in separate
-  JavaScript files. This file only defines the HTML structure.
-  ============================================================================
--->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Management System</title>
-    <!-- Main application styles will be linked here -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="features/UserList/UserList.css">
+    <link rel="stylesheet" href="features/UserForm/UserForm.css">
 </head>
 <body>
-    <!-- Main application container -->
-    <div id="app">
-        <!-- Search and filter section -->
-        <div id="search-filter-section"></div>
+    <div class="container">
+        <h1>User Management System</h1>
 
-        <!-- User list section -->
-        <div id="user-list-section"></div>
+        <input type="text" id="searchInput" placeholder="Search users...">
 
-        <!-- User form section (for adding/editing) -->
-        <div id="user-form-section"></div>
+       <label for="specialtyFilter">Filter by Specialty:</label>
+     <select id="specialtyFilter">
+     <option value="">All</option>
+</select>
+
+
+        <button id="showAddUserFormBtn">Add User</button>
+          
+        <div id="user-form-section" style="display:none;"></div>
+
+        <table id="userTable">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Age</th>
+                    <th>Specialty</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
     </div>
-
-    <!-- Main application entry point -->
-    <script src="assets/js/app.js"></script>
+<script src="utils/validation.js"></script>
+<script type="module" src="features/UserList/UserList.js"></script>
+ 
 </body>
 </html>

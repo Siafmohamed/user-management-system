@@ -1,51 +1,83 @@
-/**
- * ============================================================================
- * USER LIST FEATURE - JavaScript Logic
- * ============================================================================
- *
- * PURPOSE:
- *   This module handles all the logic for the user list feature. It manages
- *   rendering users, handling user actions (edit, delete, view), and updating
- *   the list when data changes.
- *
- * RESPONSIBILITIES:
- *   - Render the list of users in the DOM
- *   - Handle user row rendering and updates
- *   - Attach event listeners to action buttons
- *   - Filter and sort users
- *   - Handle delete user confirmations
- *   - Refresh list when data changes
- *   - Show/hide empty state message
- *
- * KEY FUNCTIONS:
- *   - init(): Initialize the user list component
- *   - render(users): Render user list with provided data
- *   - renderUserRow(user): Render a single user row
- *   - attachEventListeners(): Attach click handlers to buttons
- *   - onEditClick(userId): Handle edit button click
- *   - onDeleteClick(userId): Handle delete button click
- *   - onViewClick(userId): Handle view button click
- *   - updateList(): Refresh list with current data
- *   - showEmptyState(): Display message when no users
- *   - hideEmptyState(): Hide empty state message
- *
- * EVENTS:
- *   - Listens for: 'userListRefresh' - refresh the entire list
- *   - Dispatches: 'editUser', 'deleteUser', 'viewUser' events
- *
- * DEPENDENCIES:
- *   - data/users.js: Get user data
- *   - features/UserList/UserList.css: Styling
- *   - utils/helpers.js: Utility functions
- *
- * STATE:
- *   - users: Array of user objects
- *   - selectedSort: Current sort column
- *   - sortDirection: Sort order (asc/desc)
- *
- * NOTE: This module only handles displaying and interacting with the list.
- * Actual data modifications happen in app.js and users.js.
- * ============================================================================
- */
+import { attachUserFormEvents } from "../UserForm/UserForm.js";
+import { attachSearchFunctionality } from "../SearchBar/SearchBar.js";
+import { attachSpecialtyFilter } from "../FilterDropdown/FilterDropdown.js";
 
+document.addEventListener("DOMContentLoaded", () => {
+  const tableBody = document.querySelector("#userTable tbody");
+  const searchInput = document.getElementById("searchInput");
+  const specialtyFilter = document.getElementById("specialtyFilter");
+  
+  let users = JSON.parse(localStorage.getItem('users')) || [
+    {name: "basem", email: "basem@gmail.com", age: 20, specialty: "backend"},
+    {name: "shahd", email: "siiougi@gmail.com", age: 27, specialty: "data analyst"},
+    {name: "mohamed", email: "mo@gmail.com", age: 21, specialty: "cyber security"},
+    {name: "Cristiano Ronaldo", email: "CR7@gmail.com", age: 41, specialty: "Best football player"}
+  ];
+  
+  function saveUsersToLocalStorage() {
+    localStorage.setItem('users', JSON.stringify(users));
+  }
 
+  function populateSpecialtyFilter() {
+    while (specialtyFilter.options.length > 1) {
+      specialtyFilter.remove(1);
+    }
+    
+    const specialties = [...new Set(users.map(user => user.specialty))];
+    specialties.forEach(spec => {
+      const option = document.createElement("option");
+      option.value = spec;
+      option.textContent = spec;
+      specialtyFilter.appendChild(option);
+    });
+  }
+
+  function displayUsers(userArray = users) {
+    if (userArray.length === 0) {
+      tableBody.innerHTML = "<tr><td colspan='6'>No users available</td></tr>";
+      return;
+    }
+
+    tableBody.innerHTML = "";
+    userArray.forEach((user, index) => {
+      tableBody.innerHTML += `
+        <tr>
+          <td>${index + 1}</td>
+          <td>${user.name}</td>
+          <td>${user.email}</td>
+          <td>${user.age}</td>
+          <td>${user.specialty}</td>
+          <td>
+            <button class="edit-btn" data-index="${index}">Edit</button>
+            <button class="delete-btn" data-index="${index}">Delete</button>
+          </td>
+        </tr>
+      `;
+    });
+  }
+
+  attachUserFormEvents(tableBody, users, displayUsers, saveUsersToLocalStorage);
+
+  attachSearchFunctionality(searchInput, users, displayUsers);
+  
+  populateSpecialtyFilter();
+  
+  function wrappedDisplayUsers(userArray = users) {
+    displayUsers(userArray);
+    populateSpecialtyFilter(); 
+  }
+  
+  specialtyFilter.addEventListener("change", function(e) {
+    const selectedSpecialty = e.target.value;
+
+    if (selectedSpecialty === "") {
+      displayUsers(); 
+      return;
+    }
+
+    const filteredUsers = users.filter(user => user.specialty === selectedSpecialty);
+    displayUsers(filteredUsers);
+  });
+
+  displayUsers();
+});

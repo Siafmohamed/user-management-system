@@ -1,0 +1,47 @@
+/* Global Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+}
+#searchInput 
+{
+    margin: 20px auto;
+    display: block;
+    width: 400px; 
+    padding: 8px 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;">
+
+}
+#showAddUserFormBtn {
+  display: block;          
+  margin: 20px auto;       
+  padding: 10px 20px;     
+  font-size: 16px;         
+  background-color: #007bff; 
+  color: white;            
+  border: none;             
+  border-radius: 6px;      
+  cursor: pointer;         
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  transition: all 0.2s ease-in-out;     
+}
+
+#showAddUserFormBtn:hover {
+  background-color: #0056b3; 
+  transform: translateY(-2px); 
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+#specialtyFilter {
+  padding: 6px 10px;
+  margin: 0 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+}
+label[for="specialtyFilter"] {
+  font-weight: bold;
+}
