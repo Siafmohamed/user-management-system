@@ -1,14 +1,5 @@
-
-
-// Predefined roles for validation
 const VALID_ROLES = ['admin', 'user', 'moderator'];
 
-/**
- * Validates a required field
- * @param {string} fieldName - Name of the field for error reporting
- * @param {*} value - Value to validate
- * @returns {Object|boolean} - Returns true if valid, or error object if invalid
- */
 function validateRequired(fieldName, value) {
   if (!value || value.toString().trim() === '') {
     return { field: fieldName, message: `${fieldName} is required` };
@@ -16,11 +7,6 @@ function validateRequired(fieldName, value) {
   return true;
 }
 
-/**
- * Validates a user name
- * @param {string} name - Name to validate
- * @returns {Object|boolean} - Returns true if valid, or error object if invalid
- */
 function validateName(name) {
   const requiredCheck = validateRequired('name', name);
   if (requiredCheck !== true) {
@@ -38,11 +24,6 @@ function validateName(name) {
   return true;
 }
 
-/**
- * Validates an email address
- * @param {string} email - Email to validate
- * @returns {Object|boolean} - Returns true if valid, or error object if invalid
- */
 function validateEmail(email) {
   const requiredCheck = validateRequired('email', email);
   if (requiredCheck !== true) {
@@ -57,36 +38,6 @@ function validateEmail(email) {
   return true;
 }
 
-/**
- * Validates a phone number
- * @param {string} phone - Phone number to validate
- * @returns {Object|boolean} - Returns true if valid, or error object if invalid
- */
-function validatePhone(phone) {
-  const requiredCheck = validateRequired('phone', phone);
-  if (requiredCheck !== true) {
-    return requiredCheck;
-  }
-  
-  // Remove common formatting characters to check raw digits
-  const cleanPhone = phone.replace(/[\s\-\.\(\)]/g, '');
-  
-  if (cleanPhone.length < 10 || cleanPhone.length > 15) {
-    return { field: 'phone', message: 'Phone number must be between 10 and 15 digits' };
-  }
-  
-  if (!/^\+?[0-9\s\-\.\(\)]+$/.test(phone)) {
-    return { field: 'phone', message: 'Phone number can only contain digits, spaces, hyphens, parentheses, and dots' };
-  }
-  
-  return true;
-}
-
-/**
- * Validates a role
- * @param {string} role - Role to validate
- * @returns {Object|boolean} - Returns true if valid, or error object if invalid
- */
 function validateRole(role) {
   const requiredCheck = validateRequired('role', role);
   if (requiredCheck !== true) {
@@ -100,11 +51,6 @@ function validateRole(role) {
   return true;
 }
 
-/**
- * Validates a complete user object
- * @param {Object} user - User object to validate
- * @returns {Array} - Array of validation errors
- */
 function validateUserData(user) {
   const errors = [];
   
@@ -131,16 +77,10 @@ function validateUserData(user) {
   return errors;
 }
 
-/**
- * Gets all validation errors for a user
- * @param {Object} user - User object to validate
- * @returns {Array} - Array of validation errors
- */
 function getValidationErrors(user) {
   return validateUserData(user);
 }
 
-// Export functions for use in other modules
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = {
     validateName,

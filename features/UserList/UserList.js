@@ -7,12 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const searchInput = document.getElementById("searchInput");
   const specialtyFilter = document.getElementById("specialtyFilter");
   
-  let users = JSON.parse(localStorage.getItem('users')) || [
-    {name: "basem", email: "basem@gmail.com", age: 20, specialty: "backend"},
-    {name: "shahd", email: "siiougi@gmail.com", age: 27, specialty: "data analyst"},
-    {name: "mohamed", email: "mo@gmail.com", age: 21, specialty: "cyber security"},
-    {name: "Cristiano Ronaldo", email: "CR7@gmail.com", age: 41, specialty: "Best football player"}
-  ];
+  let users = JSON.parse(localStorage.getItem('users')) 
   
   function saveUsersToLocalStorage() {
     localStorage.setItem('users', JSON.stringify(users));
@@ -61,23 +56,8 @@ document.addEventListener("DOMContentLoaded", () => {
   attachSearchFunctionality(searchInput, users, displayUsers);
   
   populateSpecialtyFilter();
+
+  attachSpecialtyFilter(specialtyFilter, users, displayUsers);
   
-  function wrappedDisplayUsers(userArray = users) {
-    displayUsers(userArray);
-    populateSpecialtyFilter(); 
-  }
-  
-  specialtyFilter.addEventListener("change", function(e) {
-    const selectedSpecialty = e.target.value;
-
-    if (selectedSpecialty === "") {
-      displayUsers(); 
-      return;
-    }
-
-    const filteredUsers = users.filter(user => user.specialty === selectedSpecialty);
-    displayUsers(filteredUsers);
-  });
-
   displayUsers();
 });

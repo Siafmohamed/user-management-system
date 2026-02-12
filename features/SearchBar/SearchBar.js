@@ -9,10 +9,7 @@ export function attachSearchFunctionality(searchInput, users, displayUsers) {
 
     const filteredUsers = users.filter(user => {
       return (
-        user.name.toLowerCase().includes(searchTerm) ||
-        user.email.toLowerCase().includes(searchTerm) ||
-        user.age.toString().includes(searchTerm) ||
-        user.specialty.toLowerCase().includes(searchTerm)
+        user.name.toLowerCase().includes(searchTerm)
       );
     });
 
